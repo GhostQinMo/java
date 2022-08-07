@@ -1,4 +1,4 @@
-package FairyHome.QinLove.Controller;
+package FairyHome.QinLove.Controller.DeptController;
 
 import FairyHome.QinLove.POJO.Dept;
 import FairyHome.QinLove.Serivce1.DeptService;

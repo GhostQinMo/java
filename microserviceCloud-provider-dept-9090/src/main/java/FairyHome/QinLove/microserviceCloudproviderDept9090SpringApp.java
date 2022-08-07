@@ -2,7 +2,8 @@ package FairyHome.QinLove;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.devtools.autoconfigure.DevToolsProperties;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
@@ -14,6 +15,8 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @Description microserviceCloud_provider_dept的springboot的启动类
  **/
 @SpringBootApplication
+@EnableEurekaClient   //该注解必须有  启动后改微服务自动注册到eureka-server微服务上（即注册中心）
+@EnableDiscoveryClient  //启动服务发现
 public class microserviceCloudproviderDept9090SpringApp {
     public static void main(String[] args){
         ConfigurableApplicationContext run = SpringApplication.run(microserviceCloudproviderDept9090SpringApp.class, args);

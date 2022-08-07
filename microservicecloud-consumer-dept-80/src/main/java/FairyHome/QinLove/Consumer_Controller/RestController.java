@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
+
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
  **/
 
 //注意要使用 @RestController 返回json字符串
-@org.springframework.web.bind.annotation.RestController
+@org.springframework.web.bind.annotation.RestController   //写了复合注解在类上就不需要在写在方法
 public class RestController {
     @Autowired
     RestTemplate restTemplate;
@@ -44,5 +45,10 @@ public class RestController {
     @RequestMapping(value = "/consumer/dept/getAll")
     public List<Dept> selectAll(){
         return restTemplate.getForObject(Rest_prefix+"/dept/getAll",List.class);
+    }
+
+    @RequestMapping(value="/consumer/dept/info")
+    public Object getDeptInfo(){
+        return restTemplate.getForObject(Rest_prefix+"/dept/discovery", Object.class);  //注意这里返回的类型
     }
 }
