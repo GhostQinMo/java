@@ -1,0 +1,25 @@
+server:
+  port: 9090
+mybatis:
+  config-location: classpath:mybatis/mybatiscfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: FairyHome.QinLove.POJO    # 所有Entity别名类所在包
+  mapper-locations: classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+spring:
+  devtools:
+    livereload:
+      port: 35725   #防止livereload 警告
+  application:
+    name: microservicecloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:13306/clouddb01?useSSL=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterUnicoding=UTF-8          # 数据库名称
+    username: root
+    password:
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+
+
