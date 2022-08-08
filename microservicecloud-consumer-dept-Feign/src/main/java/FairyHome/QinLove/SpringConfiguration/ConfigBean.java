@@ -27,9 +27,9 @@ public class ConfigBean {
     }
 
     //通过向容器中添加Springboot和Eureka整合自带的7个负载均衡算法中的一个改变默认的轮询负载均衡算法算法
-   /* @Bean
+//    @Bean
     public IRule getIRuel(){
         return new RandomRule();
-    }*/
+    }
 
 }

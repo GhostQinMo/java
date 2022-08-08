@@ -1,6 +1,7 @@
 package FairyHome.QinLove.Consumer_Controller;
 
 import FairyHome.QinLove.POJO.Dept;
+import FairyHome.QinLove.Service.setFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,12 @@ import java.util.List;
 //注意要使用 @RestController 返回json字符串
 @org.springframework.web.bind.annotation.RestController   //写了复合注解在类上就不需要在写在方法
 public class RestController {
+
     @Autowired
+    RestTemplate restTemplate;
+    private final static String Rest_prefix="http://MICROSERVICECLOUD-DEPT";   //microservicecloud-dept
+    //这里是Ribbon+RestTemplate访问
+   /* @Autowired
     RestTemplate restTemplate;
 //    private final static String Rest_prefix="http://localhost:9090";    //没有结合ribbon
     private final static String Rest_prefix="http://MICROSERVICECLOUD-DEPT";   //microservicecloud-dept
@@ -47,6 +53,28 @@ public class RestController {
     @RequestMapping(value = "/consumer/dept/getAll")
     public List<Dept> selectAll(){
         return restTemplate.getForObject(Rest_prefix+"/dept/getAll",List.class);
+    }
+
+    @RequestMapping(value="/consumer/dept/get/info")
+    public Object getDeptInfo(){
+        return restTemplate.getForObject(Rest_prefix+"/dept/discovery", Object.class);  //注意这里返回的类型
+    }*/
+
+
+    //下面是Feign访问风格
+    @Autowired
+    FairyHome.QinLove.Service.setFeign setFeign;
+    @RequestMapping(value = "/consumer/dept/add")
+    public boolean addDept(Dept dept){
+        return setFeign.addDept(dept);
+    }
+    @RequestMapping(value = "/consumer/dept/get/{id}")
+    public Dept seletone(@PathVariable(value = "id") long id){
+        return setFeign.getOne(id);
+    }
+    @RequestMapping(value = "/consumer/dept/getAll")
+    public List<Dept> selectAll() {
+        return setFeign.getAll();
     }
 
     @RequestMapping(value="/consumer/dept/get/info")

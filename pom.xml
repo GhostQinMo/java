@@ -16,6 +16,9 @@
         <module>microserverCloud-eureka-7001</module>
         <module>microserverCloud-eureka-7002</module>
         <module>microserverCloud-eureka-7003</module>
+        <module>microserviceCloud-provider-dept-9091</module>
+        <module>microserviceCloud-provider-dept-9092</module>
+        <module>microservicecloud-consumer-dept-Feign</module>
     </modules>
 
     <properties>
@@ -100,7 +103,7 @@
                 <version>3.2.0</version>
                 <configuration>
                     <delimiters>
-                        <delimit>$</delimit>
+                        <delimit>@</delimit>
                     </delimiters>
                 </configuration>
             </plugin>
