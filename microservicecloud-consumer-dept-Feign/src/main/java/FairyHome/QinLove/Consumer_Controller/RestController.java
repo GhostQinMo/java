@@ -70,6 +70,7 @@ public class RestController {
     }
     @RequestMapping(value = "/consumer/dept/get/{id}")
     public Dept seletone(@PathVariable(value = "id") long id){
+//        throw new ArithmeticException();
         return setFeign.getOne(id);
     }
     @RequestMapping(value = "/consumer/dept/getAll")

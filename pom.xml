@@ -19,6 +19,9 @@
         <module>microserviceCloud-provider-dept-9091</module>
         <module>microserviceCloud-provider-dept-9092</module>
         <module>microservicecloud-consumer-dept-Feign</module>
+        <module>microserviceCloud-provider-dept-hystrix-9001</module>
+        <module>microservicecloud-consumer-hystrix-dashboard</module>
+        <module>microservicecloud_zuul_gateway_9527</module>
     </modules>
 
     <properties>
@@ -28,6 +31,9 @@
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
         <lombok.version>1.16.18</lombok.version>
+<!--        下面注释的依赖是应为版本依赖添加的  但是还是不行-->
+       <!-- <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <maven-jar-plugin.version>2.6</maven-jar-plugin.version>-->
     </properties>
     <dependencyManagement>
         <dependencies>

@@ -1,0 +1,33 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+eureka:
+  instance:
+    instance-id: getway-9572.com
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/,http://eureka7001.com:7001/eureka/
+#配置该微服务的唯一id超链接的info信息
+info:
+  app.name: fairyhome-microservicecloud
+  conpany.name: https://github.com/GhostQinMo
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
+  app.model: ${eureka.instance.instance-id}
+
+#配置路由的映射关系
+zuul:
+  prefix: /FairyQin     #所以微服务访问路径的前缀
+  ignored-services: "*"     #禁止所有微服务通过注册在Eureka集群上的微服务名称来访问微服务,只能通过zuul路由来访问
+  #映射关系
+  routes:
+    dept.serviceId: microservicecloud-dept     # key  注册在Eureka集群上的微服务的唯一id
+    dept.path: /mydept/**                 #value   在浏览器中输入的访问路径
+
+management:
+  security:
+    enabled: false
+

@@ -17,7 +17,8 @@ import java.util.List;
  * @CreateDate 2022-08-08 21:36:31
  * @Description 使用Feign简化服务访问
  **/
-@FeignClient(value = "MICROSERVICECLOUD-DEPT")
+//@FeignClient(value = "MICROSERVICECLOUD-DEPT")   //这是使用feign负载均衡 通过接口+注解访问
+@FeignClient(value = "MICROSERVICECLOUD-DEPT",fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface setFeign {
     @PostMapping("/dept/add")
     boolean addDept(@RequestBody Dept dept);

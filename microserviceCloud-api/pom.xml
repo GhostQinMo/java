@@ -24,11 +24,15 @@
         </dependency>
 <!--
         Feign是一个声明式的web service客户端，他让微服务之间的调用变得更简单，类似Controller调用Service，可在服务之间进行调用，简化调用流程。
+        服务熔断hystrix包含在feign的依赖中
 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
+
+
+
 
 
     </dependencies>

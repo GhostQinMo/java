@@ -1,0 +1,49 @@
+server:
+  port: 9001
+mybatis:
+  config-location: classpath:mybatis/mybatiscfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: FairyHome.QinLove.POJO    # 所有Entity别名类所在包
+  mapper-locations: classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+spring:
+  devtools:
+    livereload:
+      port: 35735   #防止livereload 警告
+  application:
+    name: microservicecloud-dept       #服务名 客户可以同该服务名找到该微服务
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:13306/clouddb01?useSSL=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterUnicoding=UTF-8          # 数据库名称
+    username: root
+    password:
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+eureka:
+  client:   #这是客户端（eureka client）
+    service-url:
+      #      defaultZone:  http://localhost:7001/eureka/   # eureka server 提供的url 用来server与client交互的地址 也是注册和查询服务的地址   只有单个eureka的时候
+      #当有Eureka集群的时候需要全部注册
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/,http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: microservicecloud-dept-hystrix-9001    #设置在该微服务在注册中心（eureka server）上的唯一id
+    prefer-ip-address: true           #设置在eureka-client页面，当鼠标触发是左下角显示该微服务的详细地址
+#配置该微服务的唯一id超链接的info信息
+info:
+  app.name: fairyhome-microservicecloud
+  conpany.name: https://github.com/GhostQinMo
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
+
+  # 使用Hystrix Metrics Stream必备
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
+
+
+
+
