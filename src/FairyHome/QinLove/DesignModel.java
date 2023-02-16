@@ -3,6 +3,8 @@ package FairyHome.QinLove;
 import org.junit.Test;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Black_ghost
@@ -15,6 +17,7 @@ import java.lang.reflect.Proxy;
 public class DesignModel {
     @Test
     public void test01() throws Exception {
+
         /*Class<?> aClass = new Object().getClass();
         Constructor<?> declaredConstructor = aClass.getDeclaredConstructor();
         declaredConstructor.setAccessible(true);*/
@@ -24,8 +27,9 @@ public class DesignModel {
         }
         test02(strings);
     }
-    public void test02(String ...strs){
+    public <E> void test02(String ...strs){
         System.out.println(strs.length);
+
     }
 }
 
