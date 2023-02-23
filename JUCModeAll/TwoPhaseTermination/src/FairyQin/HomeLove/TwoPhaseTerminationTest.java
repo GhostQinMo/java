@@ -15,7 +15,7 @@ public class TwoPhaseTerminationTest {
         TwoPhaseTermination twoPhaseTermination=new TwoPhaseTermination();
         twoPhaseTermination.start();
         TimeUnit.SECONDS.sleep(4);
-        //打断线程
+        //打断线程   这里的stop方法是自己定义的
         twoPhaseTermination.stop();
     }
 }
