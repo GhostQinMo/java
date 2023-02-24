@@ -1,0 +1,18 @@
+package FairyQin.HomeLove.AbstractStrategy.strategyImpl;
+
+import FairyQin.HomeLove.AbstractStrategy.AbstractStrategy;
+
+/**
+ * @author Black_ghost
+ * @title: StrategyA
+ * @projectName DesignModelAll
+ * @description :616  An unchanging God  Qin_Love
+ * @CreateDate 2023-02-24 20:12:47
+ * @Description 具体策略角色之一
+ **/
+public class StrategyA implements AbstractStrategy {
+    @Override
+    public void show() {
+        System.out.println("StrategyA》》》》买二送一");
+    }
+}
