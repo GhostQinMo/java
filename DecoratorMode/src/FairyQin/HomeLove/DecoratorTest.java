@@ -1,0 +1,38 @@
+package FairyQin.HomeLove;
+
+import FairyQin.HomeLove.AbstractRole.FastFood;
+import FairyQin.HomeLove.ConcreteComponent.FriedNoodles;
+import FairyQin.HomeLove.ConcreteComponent.FriedRice;
+import FairyQin.HomeLove.DecoratorPoJO.Bacon;
+import FairyQin.HomeLove.DecoratorPoJO.Egg;
+
+/**
+ * @author Black_ghost
+ * @title: DecoratorTest
+ * @projectName DesignModelAll
+ * @description :616  An unchanging God  Qin_Love
+ * @CreateDate 2023-02-26 16:57:05
+ * @Description 装饰者模式测试
+ **/
+public class DecoratorTest {
+    public static void main(String[] args){
+        //点一份炒饭
+        FastFood food = new FriedRice();
+        //花费的价格
+        System.out.println(food.getDesc() + " " + food.cost() + "元");
+
+        System.out.println("========");
+        //点一份加鸡蛋的炒饭
+        FastFood food1 = new FriedRice();
+
+        food1 = new Egg(food1);
+        //花费的价格
+        System.out.println(food1.getDesc() + " " + food1.cost() + "元");
+        System.out.println("========");
+        //点一份加培根的炒面
+        FastFood food2 = new FriedNoodles();
+        food2 = new Bacon(food2);
+        //花费的价格
+        System.out.println(food2.getDesc() + " " + food2.cost() + "元");
+    }
+}
