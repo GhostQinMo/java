@@ -1,5 +1,7 @@
 package FairyQin.HomeLove.lazyMode2;
 
+import FairyQin.HomeLove.lazyMode3.lazyMode3;
+
 import java.util.concurrent.TimeUnit;
 
 /**
