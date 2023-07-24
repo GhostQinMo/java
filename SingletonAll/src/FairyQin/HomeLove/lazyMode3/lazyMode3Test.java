@@ -1,10 +1,6 @@
 package FairyQin.HomeLove.lazyMode3;
 
 
-import FairyQin.HomeLove.lazyMode2.lazyMode2;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
@@ -19,7 +15,6 @@ import java.util.concurrent.FutureTask;
 
 public class lazyMode3Test {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-
         FutureTask<lazyMode3> lazyMode2FutureTask = new FutureTask<>(lazyMode3::getInstance);
         Thread thread1=new Thread(lazyMode2FutureTask);
         thread1.start();

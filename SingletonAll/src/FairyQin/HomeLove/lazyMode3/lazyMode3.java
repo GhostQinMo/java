@@ -1,9 +1,6 @@
 package FairyQin.HomeLove.lazyMode3;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * @author Black_ghost
  * @title: lazyMode3
@@ -35,4 +32,11 @@ public class lazyMode3 {
     }
 
 
+    @Override
+    public String toString() {
+        return "lazyMode3{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
