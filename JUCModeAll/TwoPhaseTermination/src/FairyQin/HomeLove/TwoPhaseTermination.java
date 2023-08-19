@@ -46,7 +46,7 @@ public class TwoPhaseTermination {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                             System.out.println("睡眠中被打断");
-                            //设置打断标记  下一次循环就会推出循环，线程结束
+                            //设置打断标记  下一次循环就会推出，线程结束
                             currentthread.interrupt();
                         }
                     }
@@ -60,6 +60,8 @@ public class TwoPhaseTermination {
     }
     //打断线程的方法
     public  void stop() throws InterruptedException {
+        //interrupt()方法打断sleep()/wait()/join()方法的线程，会抛出异常,并且会清除打断标记（即会设置线程的打断标记为false）
+        //而interrupt()方法打断park()方法的线程，不会抛出异常，不会清除打断标记，会设置线程的打断标记为true
         thread.interrupt();
         TimeUnit.SECONDS.sleep(6);
         System.out.println("thread.getState() = " + thread.getState());

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @projectName DesignModelAll
  * @description :616  An unchanging God  Qin_Love
  * @CreateDate 2023-02-17 17:48:15
- * @Description 两端打断线程测试
+ * @Description 两段打断线程测试
  **/
 public class TwoPhaseTerminationTest {
     public static void main(String[] args) throws InterruptedException {
