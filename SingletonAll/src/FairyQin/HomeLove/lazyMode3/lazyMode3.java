@@ -1,6 +1,8 @@
 package FairyQin.HomeLove.lazyMode3;
 
 
+import java.io.Serializable;
+
 /**
  * @author Black_ghost
  * @title: lazyMode3
@@ -10,7 +12,7 @@ package FairyQin.HomeLove.lazyMode3;
  * @Description double-checked locking  提高单例访问并发量
  **/
 
-public class lazyMode3 {
+public final  class lazyMode3 implements Serializable {
     public String name;
     public int age;
     private  lazyMode3(String name, int age) {
@@ -38,5 +40,9 @@ public class lazyMode3 {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+    //添加readResolve方法 禁止反序列化破坏单例
+    public Object readResolve(){
+        return INSTANCE;
     }
 }
