@@ -2,6 +2,7 @@ package FairyQin.HomeLove.hungermode3;
 
 /**
  * @author FairyQin
+ * 定义枚举类实现单例模式
  */
 
 public enum HungerUser {
