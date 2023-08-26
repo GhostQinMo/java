@@ -10,8 +10,11 @@ package com.example.spistandard.SPIInterface;
  * @Description 策略的实现类
  **/
 public class strategyimpl1 implements strategy {
+
     @Override
     public String getstratety() {
         return "买一送一";
     }
+
+
 }

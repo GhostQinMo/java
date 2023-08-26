@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 级别[ALL< Trace < DEBUG < INFO < WARN < ERROR < FATAL < OFF] -->
+<!-- monitorInterval(单位s)指定log4j自动重新配置的监测间隔时间-->
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <!-- 配置日志文件输出目录 ${sys:user.home} -->
+        <Property name="log_path_home">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <!--每日存档 关键点在于 filePattern后的日期格式，以及TimeBasedTriggeringPolicy的interval，
+                日期格式精确到哪一位，interval也精确到哪一个单位 -->
+        <RollingFile name="dailyInfoFile" fileName="${log_path_home}/info.log"
+                     filePattern="${log_path_home}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+            <!--过滤器
+			onMatch：level及以上级别的信息
+			onMismatch：level以下级别的信息
+			值：
+			DENY：拦截
+			ACCEPT：接收
+			NEUTRAL：不拦截，不接收
+			-->
+            <!--
+                只显示一种日志级别的输出的过滤方式，以下是只显示warn级别日志的例子：
+                <Filters>
+                    顺序很重要，需要显示的日志级别放在最后
+                    <ThresholdFilter level="error" onMatch="DENY"
+                                     onMismatch="NEUTRAL" />
+                    <ThresholdFilter level="warn" onMatch="ACCEPT"
+                                     onMismatch="DENY" />
+                </Filters>
+            -->
+            <ThresholdFilter level="info" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}[%level][%c:%L][%t] %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <!-- <SizeBasedTriggeringPolicy size="10 MB" />  --><!--指定每一个文件大小 -->
+            </Policies>
+            <DefaultRolloverStrategy max="7" /><!-- 最多保留max个历史文件-->
+        </RollingFile>
+        <!--每日错误日志-->
+        <RollingFile name="dailyErrFile" fileName="${log_path_home}/error.log"
+                     filePattern="${log_path_home}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+            <ThresholdFilter level="error" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}[%level][%c:%L][%t] %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <DefaultRolloverStrategy max="7" /><!-- 最多保留max个历史文件-->
+        </RollingFile>
+        <!--这个输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
+            <ThresholdFilter level="trace" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <!-- 输出日志的格式
+                %d{yyyy-MM-dd HH:mm:ss.SSS} : 日志生产时间
+				%level 日志等级 如：%-5level -5表示左对齐并且固定输出5个字符，如果不足在右边补0
+                %p : 日志输出格式
+				%t : 输出当前线程名称
+                %c/%C : logger的名称/输出类名
+                %m : 日志内容，即 logger.info("message")
+                %n : 换行符
+                %C : Java类名
+                %L : 日志输出所在行数
+                %M : 日志输出所在方法名
+				%logger : 输出logger名称，因为Root Logger没有名称，所以没有输出
+				%l: 输出完整的错误位置, 包括类名、方法名、文件名、行数
+                hostName : 本地机器名
+                hostAddress : 本地ip地址 -->
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss}[%level][%c:%L][%t] %msg%n" />
+        </Console>
+
+        <!--打印出所有信息，append属性决定每次运行程序会自动清空-->
+        <!--append true表示追加记录，false表示覆盖 -->
+        <File name="log" fileName="${log_path_home}/curSvrPrint.log" append="false">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss}[%level][%c:%L][%t] %msg%n"/>
+        </File>
+
+    </Appenders>
+
+    <!--定义了logger并引入的appender，appender才会生效-->
+    <Loggers>
+        <!--过滤掉无用的日志-->
+        <!--        <logger name="包名" level="error" />-->
+        <root level="all">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="log"/>
+            <appender-ref ref="dailyInfoFile"/>
+            <appender-ref ref="dailyErrFile"/>
+        </root>
+    </Loggers>
+</Configuration>
