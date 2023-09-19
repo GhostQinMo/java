@@ -1,10 +1,6 @@
 package FairyHome.QinLove;
 
 import org.junit.Test;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Black_ghost
@@ -29,6 +25,10 @@ public class DesignModel {
     }
     public <E> void test02(String ...strs){
         System.out.println(strs.length);
+
+    }
+
+    public static void main(String[] args) {
 
     }
 }
