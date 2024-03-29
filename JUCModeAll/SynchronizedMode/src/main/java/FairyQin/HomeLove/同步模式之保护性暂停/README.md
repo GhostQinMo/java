@@ -10,4 +10,4 @@
 - 因为要等待另一方的结果，因此归类到同步模式
 ----
 **关系图：**
-![image-20230218224421773](https://cdn.staticaly.com/gh/GhostQinMo/ImageBed@master/ImagesJUC/image-20230218224421773.png)
+![image-20230218224421773](https://angelxinnotesimages.oss-cn-hangzhou.aliyuncs.com/JUC/image-20230218224421773.png)
