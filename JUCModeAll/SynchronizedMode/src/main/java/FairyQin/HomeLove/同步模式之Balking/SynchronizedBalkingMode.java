@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @vesion 1.0.0
  * @CreateDate 2023-08-20 13:08:41
  * @Description 同步模式之Balking：该模式的作用是用来保证一个方法只执行一次
+ * Balking （犹豫）模式用在一个线程发现另一个线程或本线程已经做了某一件相同的事，那么本线程就无需再做了，直接结束返回
  **/
 @Slf4j
 public class SynchronizedBalkingMode {

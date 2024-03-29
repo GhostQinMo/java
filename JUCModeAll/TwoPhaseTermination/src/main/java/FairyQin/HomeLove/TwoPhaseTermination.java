@@ -16,18 +16,6 @@ public class TwoPhaseTermination {
     private Thread thread;
     //线程开始的方法
     public  void start(){
-//        thread=new Thread(){
-//            @Override
-//            public void run() {
-//                super.run();
-//            }
-//        };
-//         thread=new Thread(new Runnable() {
-//             @Override
-//             public void run() {
-//
-//             }
-//         });
             thread=new Thread(() -> {
                 Thread currentthread=Thread.currentThread();
                 while(true){
