@@ -1,6 +1,9 @@
 package FairyQin.HomeLove;
 
+import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicMarkableReference;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Black_ghost
@@ -16,6 +19,6 @@ public class TwoPhaseTerminationTest {
         twoPhaseTermination.start();
         TimeUnit.SECONDS.sleep(4);
         //打断线程   这里的stop方法是自己定义的
-        twoPhaseTermination.stop();
+        BigDecimal bigDecimal=new BigDecimal(1000_000_000);
     }
 }
