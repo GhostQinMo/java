@@ -29,6 +29,6 @@ public class FlyWeightTest {
         AbstractBox box4 = BoxFactory.getBox("O");
         box4.display("红色");
 
-        System.out.println("两次获取到的O图形对象是否是同一个对象：" + (box3 == box4));
+        System.out.println("两次获取到的O图形对象是否是同一个对象：" + (box3 == box4));  //true
     }
 }

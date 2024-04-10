@@ -24,9 +24,9 @@ Flyweight Pattern  享元模式
 
 下面的图片是众所周知的俄罗斯方块中的一个个方块，如果在俄罗斯方块这个游戏中，每个不同的方块都是一个实例对象，这些对象就要占用很多的内存空间，下面利用享元模式进行实现。
 
-![俄罗斯方块享元模式的图示](https://cdn.staticaly.com/gh/GhostQinMo/ImageBed@master/DesignModeAll/%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%A4%BA.jpeg)
+![俄罗斯方块享元模式的图示](https://angelxinnotesimages.oss-cn-hangzhou.aliyuncs.com/JUC/%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%A4%BA.jpeg)
 ####案例类图：
-![享元模式类图](https://cdn.staticaly.com/gh/GhostQinMo/ImageBed@master/DesignModeAll/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%B1%BB%E5%9B%BE.png)
+![享元模式类图](https://angelxinnotesimages.oss-cn-hangzhou.aliyuncs.com/JUC/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%B1%BB%E5%9B%BE.png)
 **类图说明：**
 >AbstractBox中的getShape()方法是返回具体的图形，是一个抽象的方法（例如是l图形就返回I方块）是抽象享元角色
 

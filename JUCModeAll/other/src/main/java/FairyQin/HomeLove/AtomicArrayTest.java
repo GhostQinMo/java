@@ -2,6 +2,7 @@ package FairyQin.HomeLove;
 
 import lombok.extern.slf4j.Slf4j;
 
+
 /**
  * @Project Name : DesignModelAll
  * @Author ：AngelXin
@@ -11,5 +12,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class AtomicArrayTest {
-
+    public static void main(String[] args) {
+    }
 }

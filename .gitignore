@@ -1,3 +1,7 @@
 .idea
 DesignModelAll.iml
 ./**/*.iml
+*/target
+*/logs
+*/**/target
+*/*/logs

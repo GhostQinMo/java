@@ -1,4 +1,4 @@
-package FairyQin.HomeLove.DynamicProxy.JDKDynamicProxy;
+package FairyQin.HomeLove.DynamicProxy.CGLIBDynamicProxy;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

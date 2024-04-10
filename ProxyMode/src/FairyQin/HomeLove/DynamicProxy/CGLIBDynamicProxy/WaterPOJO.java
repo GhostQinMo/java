@@ -1,4 +1,4 @@
-package FairyQin.HomeLove.DynamicProxy.JDKDynamicProxy;
+package FairyQin.HomeLove.DynamicProxy.CGLIBDynamicProxy;
 
 /**
  * @author Black_ghost
